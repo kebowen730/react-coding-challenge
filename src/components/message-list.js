@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import Button from '@material-ui/core/Button'
 import SnackbarContent from '@material-ui/core/SnackbarContent'
+import Column from './column'
 
 import Api from '../api'
-import Column from './column'
 import './styles.scss'
 
 
@@ -27,10 +27,6 @@ class MessageList extends Component {
     this.api.start()
   }
 
-  componentDidUpdate() {
-    console.log(this.state.messages)
-  }
-
   messageCallback(message) {
     const { messages } = this.state
     this.setState({
@@ -45,6 +41,7 @@ class MessageList extends Component {
     const isApiStarted = this.api.isStarted()
     return (
       <Button
+        className="controlbutton"
         variant="contained"
         style={{margin: 10}}
         onClick={() => {
@@ -85,9 +82,9 @@ class MessageList extends Component {
   renderClearButton = () => {
     return (
       <Button
+        className="clearbutton"
         variant="contained"
         style={{margin: 10}}
-        className="button"
         onClick={this.clearMessages}
       >
         Clear
@@ -109,6 +106,7 @@ class MessageList extends Component {
         {
           (this.state.newMessage && this.state.messages) ? 
             (<SnackbarContent 
+              className="snackbarcontent"
               style={{
                 backgroundColor: colors[this.state.messages[0].priority - 1],
                 color: "black",
@@ -128,9 +126,9 @@ class MessageList extends Component {
         {this.renderControlButton()}
         {this.renderClearButton()}
         <div className="message-columns">
-          <Column messages={errors} title="Error Type 1" delete={this.deleteMessage}></Column>
-          <Column messages={warnings} title="Warning Type 2" delete={this.deleteMessage}></Column>
-          <Column messages={info} title="Info Type 3" delete={this.deleteMessage}></Column>
+          <Column className="error" messages={errors} title="Error Type 1" delete={this.deleteMessage}></Column>
+          <Column className="warning" messages={warnings} title="Warning Type 2" delete={this.deleteMessage}></Column>
+          <Column className="info" messages={info} title="Info Type 3" delete={this.deleteMessage}></Column>
         </div>
       </div>
     )

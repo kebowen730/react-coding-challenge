@@ -11,17 +11,16 @@ class Column extends Component {
 
     render() {
         let codes = ['error', 'warning', 'info']
-        console.log(this.props.messages)
         return (
         <div className="messagebox">
-            <Typography variant="h6">
-               {this.props.title}
-                <Typography variant="subtitle1">
-                    {`Count ${this.props.messages.length}`}
+            <Typography variant="h6" className="title-box">
+               <div className="title">{this.props.title}</div>
+                <Typography variant="subtitle1" className="subtitle-box">
+                    <div className="subtitle">{`Count ${this.props.messages.length}`}</div>
                 </Typography>
             </Typography>
             {this.props.messages.map((message, index) => {
-                return (<MessageCard delete={this.props.delete} message={message}></MessageCard>)
+                return (<MessageCard key={index} delete={this.props.delete} message={message}></MessageCard>)
             })}
         </div>)
     }

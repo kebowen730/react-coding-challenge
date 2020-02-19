@@ -15,7 +15,7 @@ class MessageCard extends Component {
 
 
         return (<Card style={{ backgroundColor: this.colors[code] }} className="message-card" >
-            <div style={{width: 240}}>{this.props.message.message}</div>
+            <div className="message-text" style={{width: 240}}>{this.props.message.message}</div>
             <Button className="delete-button" onClick={() => {this.props.delete(this.props.message)}}>Clear</Button>
         </Card>)
     }
