@@ -1,0 +1,47 @@
+.messagebox {
+    margin: 5px;
+    padding: 5px;
+    width: 300px;
+}
+
+.title {
+    font-size: 24pt;
+}
+
+.subtitle {
+    font-size: 12pt;
+}
+
+.message-columns {
+    display: flex;
+    flex-direction: row;
+}
+
+.button {
+    margin: 10px;
+}
+
+.message-card {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    width: 280px;
+}
+
+.clear-button {
+    margin-left: 100px;
+}
+
+.delete-message {
+    display: block;
+    width: 40px;
+    height: 20px;
+}
+
+.message {
+    margin-left: 10;
+}
+
+.delete-button {
+    padding-left: 30px;
+}
